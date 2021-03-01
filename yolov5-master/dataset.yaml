@@ -1,5 +1,5 @@
-train: ../LaPeauData/images/train
-
+train: ../LaPeauData/images/train/
+val: ../LaPeauData/images/val/
 nc: 4
 
 names: ['BaKhoang','VayNen','DaVayCa','Zona']
