@@ -1,0 +1,5 @@
+train: ../LaPeauData/images/train
+
+nc: 4
+
+names: ['BaKhoang','VayNen','DaVayCa','Zona']
