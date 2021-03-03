@@ -85,3 +85,12 @@ int main() {
   for(int i = 0; i < n - m + 1; i++) if (H[i]) res++;
   cout << res;
 }
+
+main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+
+    int n, m; cin >> n >> m;
+    for (int i = 0; i < n - m + 1; i++) H[i] = true;
+    vector<int> a = input(n)
+}
