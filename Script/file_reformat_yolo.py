@@ -1,5 +1,7 @@
 import os
 import shutil
+import numpy as np
+
 path = f'D:\GitHub\LaPeau\LaPeauData'
 folders = ['BaKhoang', 'VayNen', 'DaVayCa', 'Zona', 'UngThu']
 
@@ -10,8 +12,7 @@ def rename():
     for folder in folders:
         maxi = 0
         print(base)
-        data_path = os.path.join(path, folder)
-        files = os.listdir(data_path)
+        files = os.listdir(os.path.join(path, folder))
         files.sort()
         print(files)
         cnt_temp = base
@@ -49,7 +50,27 @@ def transform():
         path_folder = os.path.join(path, folder)
         shutil.rmtree(path_folder, ignore_errors=True)
 
-rename()
-transform()
+def split():
+    mask = (np.random.rand(len(os.listdir(os.path.join(path, 'images')))) < 0.8)
+    print(mask.shape)
+    for folder in ['images', 'labels']:
+        path_folder = os.path.join(path, folder)
+        os.makedirs(os.path.join(path_folder, 'train'))
+        os.makedirs(os.path.join(path_folder, 'val'))
+        files = os.listdir(os.path.join(path, folder))
+        #print(len(files))
+        for idx in range(len(files)):
+            old_file = os.path.join(path_folder, files[idx])
+            if old_file[-4] != '.':
+                continue
+            new_file = os.path.join(path_folder, 'train' if mask[idx] else 'val')
+            shutil.move(old_file, new_file)
+
+
+
+# rename()
+# transform()
+split()
+
 
 
