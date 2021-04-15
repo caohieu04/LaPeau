@@ -1,5 +1,5 @@
 train: ../LaPeauData/images/train/
 val: ../LaPeauData/images/val/
-nc: 5
+nc: 4
 
-names: ['BaKhoang','VayNen','DaVayCa','Zona','UngThu']
+names: ['BaKhoang','VayNen','DaVayCa','Zona']
